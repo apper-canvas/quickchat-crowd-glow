@@ -48,7 +48,22 @@ const ConversationList = () => {
     }
   };
 
-  const handleConversationClick = (id) => {
+const handleConversationClick = async (id) => {
+    try {
+      await conversationService.markAsRead(id);
+      setConversations(prev => 
+        prev.map(conv => 
+          conv.Id === id ? { ...conv, unreadCount: 0 } : conv
+        )
+      );
+      setFilteredConversations(prev => 
+        prev.map(conv => 
+          conv.Id === id ? { ...conv, unreadCount: 0 } : conv
+        )
+      );
+    } catch (err) {
+      console.error("Error marking conversation as read:", err);
+    }
     navigate(`/conversations/${id}`);
   };
 
