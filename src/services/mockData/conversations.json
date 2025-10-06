@@ -1,0 +1,74 @@
+[
+  {
+    "Id": 1,
+    "participantName": "Sarah Johnson",
+    "participantAvatar": "https://i.pravatar.cc/150?img=1",
+    "lastMessage": "That sounds great! Let's do it 🎉",
+    "lastMessageTime": "2024-01-15T14:30:00Z",
+    "unreadCount": 2,
+    "isOnline": true
+  },
+  {
+    "Id": 2,
+    "participantName": "Mike Chen",
+    "participantAvatar": "https://i.pravatar.cc/150?img=13",
+    "lastMessage": "Thanks for the update!",
+    "lastMessageTime": "2024-01-15T13:45:00Z",
+    "unreadCount": 0,
+    "isOnline": false
+  },
+  {
+    "Id": 3,
+    "participantName": "Emily Rodriguez",
+    "participantAvatar": "https://i.pravatar.cc/150?img=5",
+    "lastMessage": "Can you send me the files?",
+    "lastMessageTime": "2024-01-15T12:20:00Z",
+    "unreadCount": 1,
+    "isOnline": true
+  },
+  {
+    "Id": 4,
+    "participantName": "David Park",
+    "participantAvatar": "https://i.pravatar.cc/150?img=12",
+    "lastMessage": "See you tomorrow!",
+    "lastMessageTime": "2024-01-15T11:15:00Z",
+    "unreadCount": 0,
+    "isOnline": false
+  },
+  {
+    "Id": 5,
+    "participantName": "Lisa Anderson",
+    "participantAvatar": "https://i.pravatar.cc/150?img=9",
+    "lastMessage": "Perfect, I'll be there at 3",
+    "lastMessageTime": "2024-01-15T10:30:00Z",
+    "unreadCount": 0,
+    "isOnline": true
+  },
+  {
+    "Id": 6,
+    "participantName": "James Wilson",
+    "participantAvatar": "https://i.pravatar.cc/150?img=14",
+    "lastMessage": "Got it, thanks!",
+    "lastMessageTime": "2024-01-14T18:45:00Z",
+    "unreadCount": 0,
+    "isOnline": false
+  },
+  {
+    "Id": 7,
+    "participantName": "Rachel Kim",
+    "participantAvatar": "https://i.pravatar.cc/150?img=20",
+    "lastMessage": "This looks amazing! 😍",
+    "lastMessageTime": "2024-01-14T16:20:00Z",
+    "unreadCount": 0,
+    "isOnline": true
+  },
+  {
+    "Id": 8,
+    "participantName": "Tom Martinez",
+    "participantAvatar": "https://i.pravatar.cc/150?img=33",
+    "lastMessage": "Let me check and get back to you",
+    "lastMessageTime": "2024-01-14T14:10:00Z",
+    "unreadCount": 0,
+    "isOnline": false
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "Id": 1,
+    "conversationId": 1,
+    "senderId": "sarah",
+    "content": "Hey! How are you doing?",
+    "timestamp": "2024-01-15T14:15:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 2,
+    "conversationId": 1,
+    "senderId": "me",
+    "content": "I'm great! Just working on some new features.",
+    "timestamp": "2024-01-15T14:18:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 3,
+    "conversationId": 1,
+    "senderId": "sarah",
+    "content": "That sounds exciting! What are you building?",
+    "timestamp": "2024-01-15T14:20:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 4,
+    "conversationId": 1,
+    "senderId": "me",
+    "content": "A messaging app with real-time features. Want to grab coffee and I'll show you?",
+    "timestamp": "2024-01-15T14:25:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 5,
+    "conversationId": 1,
+    "senderId": "sarah",
+    "content": "That sounds great! Let's do it 🎉",
+    "timestamp": "2024-01-15T14:30:00Z",
+    "status": "delivered",
+    "type": "text"
+  },
+  {
+    "Id": 6,
+    "conversationId": 2,
+    "senderId": "mike",
+    "content": "Hi! Did you get the document I sent?",
+    "timestamp": "2024-01-15T13:30:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 7,
+    "conversationId": 2,
+    "senderId": "me",
+    "content": "Yes, I reviewed it. Looks good overall!",
+    "timestamp": "2024-01-15T13:35:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 8,
+    "conversationId": 2,
+    "senderId": "me",
+    "content": "Just have a few minor suggestions",
+    "timestamp": "2024-01-15T13:36:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 9,
+    "conversationId": 2,
+    "senderId": "mike",
+    "content": "Thanks for the update!",
+    "timestamp": "2024-01-15T13:45:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 10,
+    "conversationId": 3,
+    "senderId": "emily",
+    "content": "Hey, quick question about the project",
+    "timestamp": "2024-01-15T12:00:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 11,
+    "conversationId": 3,
+    "senderId": "me",
+    "content": "Sure, what's up?",
+    "timestamp": "2024-01-15T12:05:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 12,
+    "conversationId": 3,
+    "senderId": "emily",
+    "content": "Can you send me the files?",
+    "timestamp": "2024-01-15T12:20:00Z",
+    "status": "delivered",
+    "type": "text"
+  },
+  {
+    "Id": 13,
+    "conversationId": 4,
+    "senderId": "david",
+    "content": "Meeting still on for tomorrow?",
+    "timestamp": "2024-01-15T11:00:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 14,
+    "conversationId": 4,
+    "senderId": "me",
+    "content": "Yes! 10am at the usual place",
+    "timestamp": "2024-01-15T11:10:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 15,
+    "conversationId": 4,
+    "senderId": "david",
+    "content": "See you tomorrow!",
+    "timestamp": "2024-01-15T11:15:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 16,
+    "conversationId": 5,
+    "senderId": "me",
+    "content": "Hey Lisa, are we still on for the presentation?",
+    "timestamp": "2024-01-15T10:00:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 17,
+    "conversationId": 5,
+    "senderId": "lisa",
+    "content": "Yes! What time works for you?",
+    "timestamp": "2024-01-15T10:15:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 18,
+    "conversationId": 5,
+    "senderId": "me",
+    "content": "How about 3pm?",
+    "timestamp": "2024-01-15T10:20:00Z",
+    "status": "read",
+    "type": "text"
+  },
+  {
+    "Id": 19,
+    "conversationId": 5,
+    "senderId": "lisa",
+    "content": "Perfect, I'll be there at 3",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "status": "read",
+    "type": "text"
+  }
+]
