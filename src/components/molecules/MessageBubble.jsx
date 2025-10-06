@@ -71,7 +71,7 @@ const MessageBubble = ({ message, isOwn }) => {
               <div className="grid grid-cols-2 gap-2">
                 {message.attachments
                   .filter(att => att.type.startsWith('image/'))
-                  .map((attachment, idx) => (
+.map((attachment, idx) => (
                     <div key={idx} className="relative rounded-lg overflow-hidden bg-gray-100">
                       {attachment.preview ? (
                         <img
