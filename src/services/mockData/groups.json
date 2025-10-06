@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "name": "Work",
+    "createdAt": "2024-01-10T10:00:00Z",
+    "conversationIds": [2, 4, 6]
+  },
+  {
+    "Id": 2,
+    "name": "Family",
+    "createdAt": "2024-01-12T14:30:00Z",
+    "conversationIds": [1, 5]
+  },
+  {
+    "Id": 3,
+    "name": "Friends",
+    "createdAt": "2024-01-14T16:45:00Z",
+    "conversationIds": [3, 7, 8]
+  }
+]

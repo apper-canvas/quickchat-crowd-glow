@@ -47,9 +47,38 @@ class ConversationService {
     const conversation = this.conversations.find(c => c.Id === parseInt(id));
     if (conversation) {
       conversation.unreadCount = 0;
-      return { ...conversation };
+return { ...conversation };
     }
     return null;
+  }
+
+  async filterByGroup(groupId) {
+    await delay(300);
+    const groupService = (await import('./groupService.js')).default;
+    const group = await groupService.getById(groupId);
+    
+    if (!group) {
+      return [];
+    }
+
+    return this.conversations
+      .filter(c => group.conversationIds.includes(c.Id))
+      .map(c => ({ ...c }))
+      .sort((a, b) => new Date(b.lastMessageTime) - new Date(a.lastMessageTime));
+  }
+
+  async addToGroup(conversationId, groupId) {
+    await delay(200);
+    const groupService = (await import('./groupService.js')).default;
+    await groupService.addConversation(groupId, conversationId);
+    return true;
+  }
+
+  async removeFromGroup(conversationId, groupId) {
+    await delay(200);
+    const groupService = (await import('./groupService.js')).default;
+    await groupService.removeConversation(groupId, conversationId);
+    return true;
   }
 }
 
