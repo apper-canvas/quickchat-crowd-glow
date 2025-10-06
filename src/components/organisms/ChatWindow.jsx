@@ -1,17 +1,17 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import TypingIndicator from "@/components/molecules/TypingIndicator";
 import MessageBubble from "@/components/molecules/MessageBubble";
 import MessageInput from "@/components/molecules/MessageInput";
-import TypingIndicator from "@/components/molecules/TypingIndicator";
-import Avatar from "@/components/atoms/Avatar";
-import Button from "@/components/atoms/Button";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import Avatar from "@/components/atoms/Avatar";
+import Button from "@/components/atoms/Button";
 import messageService from "@/services/api/messageService";
 import conversationService from "@/services/api/conversationService";
-import { toast } from "react-toastify";
 
 const ChatWindow = () => {
   const { conversationId } = useParams();
@@ -91,18 +91,21 @@ const ChatWindow = () => {
         }, 2000);
       }, 1000);
 
-      toast.success("Message sent!");
+toast.success("Message sent!");
     } catch (err) {
-      toast.error("Failed to send message");
-      console.error("Error sending message:", err);
+      setError(err.message || 'Failed to send message');
+      toast.error('Failed to send message');
     } finally {
       setSending(false);
     }
   };
 
-  if (loading) {
-    return <Loading />;
-  }
+  const handleTypingChange = (typing) => {
+    // Update local typing state if needed for future enhancements
+    // Currently using existing isTyping state for mock simulation
+  };
+
+  if (loading) return <Loading />;
 
   if (error) {
     return <Error message={error} onRetry={loadData} />;
@@ -146,7 +149,7 @@ const ChatWindow = () => {
         </div>
       </div>
 
-      {/* Messages Area */}
+{/* Messages Area */}
       <div className="flex-1 overflow-y-auto px-6 py-4">
         {messages.length === 0 ? (
           <Empty 
@@ -157,9 +160,9 @@ const ChatWindow = () => {
           <>
             {messages.map((message) => (
               <MessageBubble
-                key={message.Id}
+                key={message.id}
                 message={message}
-                isOwn={message.senderId === "me"}
+                isOwn={message.senderId === 'current-user-id'}
               />
             ))}
             {isTyping && (
