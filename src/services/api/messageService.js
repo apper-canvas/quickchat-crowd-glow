@@ -20,12 +20,13 @@ class MessageService {
     const maxId = Math.max(...this.messages.map(m => m.Id), 0);
     const newMessage = {
       Id: maxId + 1,
-      conversationId: parseInt(message.conversationId),
+conversationId: parseInt(message.conversationId),
       senderId: "me",
       content: message.content,
       timestamp: new Date().toISOString(),
       status: "sent",
-      type: "text"
+      type: "text",
+      attachments: message.attachments || []
     };
     this.messages.push(newMessage);
     

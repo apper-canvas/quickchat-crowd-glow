@@ -65,21 +65,23 @@ const ChatWindow = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = async (content) => {
+const handleSendMessage = async (content, attachments = []) => {
     try {
       setSending(true);
       
       const newMessage = await messageService.create({
         conversationId,
-        content
+        content,
+        attachments
       });
 
       setMessages(prev => [...prev, newMessage]);
       
       // Update conversation's last message
+      const lastMessageText = content || `${attachments.length} attachment(s)`;
       await conversationService.updateLastMessage(
         conversationId,
-        content,
+        lastMessageText,
         newMessage.timestamp
       );
 
@@ -91,7 +93,7 @@ const ChatWindow = () => {
         }, 2000);
       }, 1000);
 
-toast.success("Message sent!");
+      toast.success("Message sent!");
     } catch (err) {
       setError(err.message || 'Failed to send message');
       toast.error('Failed to send message');
