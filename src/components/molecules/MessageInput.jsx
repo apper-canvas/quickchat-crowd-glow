@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
+import EmojiPicker from "@/components/atoms/EmojiPicker";
 import { cn } from "@/utils/cn";
 
 const MessageInput = ({ onSend, disabled = false, onTypingChange }) => {
-  const [inputValue, setInputValue] = useState('');
+const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [attachments, setAttachments] = useState([]);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const textareaRef = useRef(null);
   const typingTimeoutRef = useRef(null);
   const fileInputRef = useRef(null);
   // Detect typing activity with debouncing
@@ -36,6 +39,26 @@ const MessageInput = ({ onSend, disabled = false, onTypingChange }) => {
       }
     };
   }, [inputValue, isTyping, onTypingChange]);
+const handleEmojiSelect = (emoji) => {
+    if (textareaRef.current) {
+      const textarea = textareaRef.current;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const textBefore = inputValue.substring(0, start);
+      const textAfter = inputValue.substring(end);
+      const newValue = textBefore + emoji + textAfter;
+      
+      setInputValue(newValue);
+      
+      // Set cursor position after emoji
+      setTimeout(() => {
+        textarea.focus();
+        const newPosition = start + emoji.length;
+        textarea.setSelectionRange(newPosition, newPosition);
+      }, 0);
+    }
+  };
+
 const handleFileSelect = (e) => {
     const files = Array.from(e.target.files || []);
     processFiles(files);
@@ -110,10 +133,13 @@ const handleFileSelect = (e) => {
       onTypingChange?.(false);
     }
   };
-  const handleKeyPress = (e) => {
+const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
+    }
+    if (e.key === "Escape" && showEmojiPicker) {
+      setShowEmojiPicker(false);
     }
   };
 
@@ -168,7 +194,8 @@ const handleFileSelect = (e) => {
             <ApperIcon name="Paperclip" size={20} />
         </Button>
         <div
-            className="flex-1 relative"
+className="flex-1 relative"
+            ref={textareaRef}
             onDragOver={handleDragOver}
             onDrop={handleDrop}>
             <textarea
@@ -185,10 +212,31 @@ const handleFileSelect = (e) => {
                 style={{
                     minHeight: "48px"
                 }} />
-            <div
+<div
                 className="absolute right-3 bottom-3 flex items-center gap-1 text-xs text-gray-400">
                 {inputValue.length}/1000
-                          </div>
+            </div>
+
+            {/* Emoji Picker Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+              className="hover:bg-gray-100"
+              title="Add emoji"
+            >
+              <ApperIcon name="Smile" size={20} />
+            </Button>
+
+            {/* Emoji Picker Dropdown */}
+            <AnimatePresence>
+              {showEmojiPicker && (
+                <EmojiPicker
+                  onEmojiSelect={handleEmojiSelect}
+                  onClose={() => setShowEmojiPicker(false)}
+                />
+              )}
+            </AnimatePresence>
         </div>
         <motion.div
             whileHover={{
